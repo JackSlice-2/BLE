@@ -1,0 +1,439 @@
+{
+    "alx": {
+        "cmd": "prg_conn_w",
+        "pmt": {
+            "mobile": {
+                "net": 1,
+                "apn": "virtueyes.com.br",
+                "user": "virtu",
+                "passw": "virtu"
+            },
+            "sat": {
+                "enbl": true
+            }
+        }
+    }
+}
+
+
+{
+    "sts": {
+        "serial": "00000110",
+        "model": "ALX-5DLG-01",
+        "mac": "D8132AB65070",
+        "frmw": "0.0.1",
+        "rtc": 1785185292,
+        "ram_p": 56,
+        "flash_p": 32,
+        "bat_v": 3.44,
+        "bat_p": 35,
+        "reg_fst": 1785185292,
+        "reg_lst": 1785185292
+    }
+}
+
+
+Configuração do RTC
+{
+    "alx": {
+        "cmd": "prg_rtc_w",
+        "pmt": {
+            "timestamp": 123456,
+            "utc": -6,
+            "ntp": false
+        }
+    }
+}
+
+
+Configuração das entradas analógicas
+{
+    "alx": {
+        "cmd": "prg_ai_w",
+        "pmt": {
+            "ports": [
+                {
+                    "id": 1,
+                    "oper": true,
+                    "scale": [
+                        0,
+                        200
+                    ]
+                },
+                {
+                    "id": 2,
+                    "oper": true,
+                    "scale": [
+                        null,
+                        null
+                    ]
+                }
+            ]
+        }
+    }
+}
+
+Configuração da atualização OTA
+{
+    "alx": {
+        "cmd": "prg_ota_w",
+        "pmt": {
+            "enbl": true,
+            "time": "12:24"
+        }
+    }
+}
+
+
+Configuração dos registros_pub em estado normal
+{
+    "alx": {
+        "cmd": "prg_msr_base_w",
+        "pmt": {
+            "pwr_supp": true,
+            "wup_time": 20,
+            "normal": {
+                "pub": {
+                    "enbl": true,
+                    "intvl": 1200,
+                    "di": true,
+                    "ai": true,
+                    "i2c": false,
+                    "drv": true
+                },
+                "reg": {
+                    "enbl": true,
+                    "intvl": 200,
+                    "di": true,
+                    "ai": true,
+                    "i2c": false,
+                    "drv": false
+                }
+            }
+        }
+    }
+}
+
+
+Configuração dos registros_pub em estado de alarme
+{
+    "alx": {
+        "cmd": "prg_msr_alrm_w",
+        "pmt": {
+            "enbl": true,
+            "alarm": {
+                "pub": {
+                    "enbl": true,
+                    "intvl": 900,
+                    "di": true,
+                    "ai": true,
+                    "i2c": true,
+                    "drv": false
+                },
+                "reg": {
+                    "enbl": true,
+                    "intvl": 60,
+                    "di": true,
+                    "ai": true,
+                    "i2c": true,
+                    "drv": true
+                }
+            }
+        }
+    }
+}
+
+
+Configuração dos limiares de alarme das entradas digitais e analógicas
+{
+    "alx": {
+        "cmd": "prg_lim_ios_w",
+        "pmt": {
+            "ai": [
+                {
+                    "id": 1,
+                    "enbl": true,
+                    "gte": 12.55,
+                    "lte": 5.00
+                },
+                {
+                    "id": 2,
+                    "enbl": false
+                }
+            ],
+            "di": [
+                {
+                    "id": 1,
+                    "enbl": true,
+                    "wup": true,
+                    "val": 0
+                },
+                {
+                    "id": 2,
+                    "enbl": true,
+                    "wup": false,
+                    "val": 1
+                }
+            ]
+        }
+    }
+}
+
+
+Configuração dos limiares de alarme dos drivers modbus
+{
+    "alx": {
+        "cmd": "prg_lim_drv_w",
+        "pmt": {
+            "drivers": [
+                {
+                    "id": 4,
+                    "fail_alrm": false,
+                    "vars": [
+                        {
+                            "var_id": 4,
+                            "gte": 120.0,
+                            "lte": -14
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
+
+
+Configuração do report do status do datalogger
+{
+    "alx": {
+        "cmd": "prg_report_sts_w",
+        "pmt": {
+            "enbl": false,
+            "intvl": 1200
+        }
+    }
+}
+
+
+Configuração do report do status de conexão LTE
+{
+    "alx": {
+        "cmd": "prg_report_conn_w",
+        "pmt": {
+            "enbl": false,
+            "intvl": 1212
+        }
+    }
+}
+
+
+Retornar as configurações de fabrica
+{
+    "alx": {
+        "cmd": "prg_factory",
+        "pmt": null
+    }
+}
+
+
+Configuração do wakeup do bluetooth
+{
+    "alx": {
+        "cmd": "prg_cfg_w",
+        "pmt": {
+            "ap_pwr_on": false,
+            "ap_btn_on": false,
+            "ap_time_on": 30,
+            "ap_time_off": 120
+        }
+    }
+}
+
+
+Alterar senha do AP
+{
+    "alx": {
+        "cmd": "prg_ap_pwd_w",
+        "pmt": {
+            "old_pwd": "123456789",
+            "new_pwd": "987654321"
+        }
+    }
+}
+
+
+Força o reset do produto
+{
+    "alx": {
+        "cmd": "prg_reset",
+        "pmt": null
+    }
+}
+
+
+Força a atualização de firmware 
+{
+    "alx": {
+        "cmd": "prg_ota_now",
+        "pmt": null
+    }
+}
+
+
+Força a atualização dos drivers
+{
+    "alx": {
+        "cmd": "prg_drvs_ver",
+        "pmt": null
+    }
+}
+
+
+Resetar contadores
+{
+    "alx": {
+        "cmd": "prg_ct_reset",
+        "pmt": {
+            "ct": [
+                true,
+                false
+            ]
+        }
+    }
+}
+
+
+Enviar Comando Drieto Modbus
+{
+    "alx": {
+        "cmd": "prg_mbus",
+        "pmt": {
+            "mbus": [
+                10,
+                4,
+                5,
+                122,
+                0,
+                2,
+                81,
+                165
+            ],
+            "tmout": 1000
+        }
+    }
+}
+
+
+Leitura do RTC
+{
+    "alx": {
+        "cmd": "prg_rtc_r",
+        "pmt": null
+    }
+}
+
+
+Leitura da Serial
+{
+    "alx": {
+        "cmd": "prg_rs485_r",
+        "pmt": null
+    }
+}
+
+
+Leitura do MQTT
+{
+    "alx": {
+        "cmd": "prg_mqtt_r",
+        "pmt": null
+    }
+}
+
+
+Leitura do celular
+{
+    "alx": {
+        "cmd": "prg_conn_r",
+        "pmt": null
+    }
+}
+
+
+Leitura da configuração das entradas analógicas
+{
+    "alx": {
+        "cmd": "prg_ai_r",
+        "pmt": null
+    }
+}
+
+
+Leitura da configuração do OTA
+{
+    "alx": {
+        "cmd": "prg_ota_r",
+        "pmt": null
+    }
+}
+
+
+Leitura da configuração do AP Wakeup
+{
+    "alx": {
+        "cmd": "prg_cfg_r",
+        "pmt": null
+    }
+}
+
+
+Leitura da configuração da status automatico do datalogger
+{
+    "alx": {
+        "cmd": "prg_report_sts_r",
+        "pmt": null
+    }
+}
+
+
+Leitura da configuração da status automatico do LTE
+{
+    "alx": {
+        "cmd": "prg_report_conn_r",
+        "pmt": null
+    }
+}
+
+Leitura da configuração base e dos registros normais
+{
+    "alx": {
+        "cmd": "prg_msr_base_r",
+        "pmt": null
+    }
+}
+
+Leitura da configuração de comportamento dos alarmes globais
+{
+    "alx": {
+        "cmd": "prg_msr_alrm_r",
+        "pmt": null
+    }
+}
+
+Leitura da configuração dos limiares de alarme das entradas (I/Os)
+{
+    "alx": {
+        "cmd": "prg_lim_ios_r",
+        "pmt": null
+    }
+}
+
+Leitura da configuração dos limiares de alarme dos drivers Modbus
+{
+    "alx": {
+        "cmd": "prg_lim_drv_r",
+        "pmt": null
+    }
+}
+
+
